@@ -55,11 +55,11 @@ body {
         color: $iceWhite;
         height: 2rem;
         width: 2rem;
-        border: none;
         border-radius: 8px;
         font-size: 2rem;
         font-weight: 600;
         @include flex-center();
+        margin-left: 8px;
       }
     }
     ul {
@@ -131,27 +131,65 @@ body {
     display: flex;
     flex-direction: column;
     color: $iceWhite;
+    justify-content: space-between;
     span {
       color: $iceWhite;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 2rem;
+      font-size: 3rem;
+      margin-bottom: 8px;
+      border-bottom: 2px solid $iceWhite;
       button {
-        width: 2vw;
-        height: 2vw;
+        width: 2rem;
+        height: 2rem;
         font-size: 2rem;
         @include flex-center();
+        border-radius: 8px;
       }
+    }
+    label {
+      display: block;
+      color: $iceWhite;
+      font-size: 1.5rem;
+    }
+    input, select {
+      display: block;
+      color: $darkBlue;
+      outline: none;
+      background-color: $iceWhite;
+      padding: 0.5vh 8px;
+      border-radius: 4px;
+      border: none;
+      margin-bottom: 1vh;
+      width: calc(64px + 50%);
+      font-size: 1.5rem;
+      border: 2px solid rgba(0,0,0,0);
+      .selectOption {
+        background-color: $iceWhite;
+        color: $darkBlue;
+      }
+      &:hover, &:focus-within {
+        box-shadow: 0 0 8px 0 rgba(0,0,0,0.4);
+        border: 2px solid $iceWhite;
+        background-color: $white;
+      }
+    }
+    .submitAddProject {
+      height: 2.5rem;
+      @include flex-center();
+      font-size: 2rem;
+      border-radius: 8px;
     }
   }
 }
 
 button {
   cursor: pointer;
+  border: none;
   &:hover {
     box-shadow: 0 0 8px 0 rgba(0,0,0,0.4);
     transition: 100ms;
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
 }
