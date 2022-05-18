@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: #323232;
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  height: 100vh;
+  overflow-y: overlay;
+}
+
+.container {
+  min-height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: calc(60px + 3vh) 1fr calc(50px + 1vh);
+  -ms-grid-columns: 1fr 3fr;
+      grid-template: calc(60px + 3vh) 1fr calc(50px + 1vh)/1fr 3fr;
+}
+
+.container .header {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 1/1/2/3;
+  background-color: #005691;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 3rem;
+  color: #fafafa;
+}
+
+.container .projectsBar {
+  background-color: #e8f1f5;
+}
+
+.container .projectView {
+  background-color: #fafafa;
+}
+
+.footer {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 3/1/4/3;
+  background-color: #005691;
+  color: #fafafa;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  color: #fafafa;
+}
+
+.footer img {
+  -webkit-filter: invert(100%) sepia(0%) saturate(3%) hue-rotate(141deg) brightness(102%) contrast(100%);
+          filter: invert(100%) sepia(0%) saturate(3%) hue-rotate(141deg) brightness(102%) contrast(100%);
+  margin: 0 8px;
+  -webkit-transition-duration: 200ms;
+          transition-duration: 200ms;
+  height: 32px;
+}
+
+.footer img:hover {
+  -webkit-transition-duration: 1000ms;
+          transition-duration: 1000ms;
+  -webkit-transform: rotate(720deg) scale(1.2);
+          transform: rotate(720deg) scale(1.2);
+}
+/*# sourceMappingURL=styles.css.map */

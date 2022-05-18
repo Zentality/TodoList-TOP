@@ -1,0 +1,66 @@
+$white: rgb(250, 250, 250);
+$iceWhite: rgb(232, 241, 245);
+$blue: rgb(0, 86, 145);
+$darkBlue: rgb(0, 74, 124);
+$darkGray: rgb(50,50,50);
+
+* {
+  margin: 0;
+  padding: 0;
+  color: $darkGray;
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  height: 100vh;
+  overflow-y: overlay;
+}
+
+.container {
+  min-height: 100%;
+  display: grid;
+  grid-template: calc(60px + 3vh) 1fr calc(50px + 1vh) / 1fr 3fr;
+  .header {
+    grid-area: 1/1/2/3;
+    background-color: $blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: $white;
+  }
+  .projectsBar {
+    background-color: $iceWhite;
+  }
+  .projectView {
+    background-color: $white;
+  }
+}
+
+.footer {
+  grid-area: 3/1/4/3;
+  background-color: $blue;
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: $white;
+  }
+  img {
+    filter: invert(100%) sepia(0%) saturate(3%) hue-rotate(141deg) brightness(102%) contrast(100%);
+    margin: 0 8px;
+    transition-duration: 200ms;
+    height: 32px;
+  }
+  img:hover {
+    transition-duration: 1000ms;
+    transform: rotate(720deg) scale(1.2);
+  }
+}
