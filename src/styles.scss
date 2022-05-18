@@ -35,9 +35,7 @@ body {
   .header {
     grid-area: 1/1/2/3;
     background-color: $blue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center();
     font-size: 3rem;
     color: $white;
   }
@@ -61,10 +59,7 @@ body {
         border-radius: 8px;
         font-size: 2rem;
         font-weight: 600;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
+        @include flex-center();
       }
     }
     ul {
@@ -80,10 +75,13 @@ body {
         &:hover {
           background-color: $blue;
           color: $iceWhite;
-          transition: 200ms;
+          transition: 500ms;
           border-radius: 4px;
           box-shadow: 0 0 8px 2px rgba(0,0,0,0.5);
           cursor: pointer;
+          transform: scale(1.05);
+          font-weight: 700;
+          letter-spacing: 0.05rem;
         }
       }
     }
@@ -97,12 +95,9 @@ body {
   grid-area: 3/1/4/3;
   background-color: $blue;
   color: $white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center();
   a {
-    display: flex;
-    align-items: center;
+    @include flex-center();
     text-decoration: none;
     color: $white;
   }
@@ -149,5 +144,14 @@ body {
         @include flex-center();
       }
     }
+  }
+}
+
+button {
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 0 8px 0 rgba(0,0,0,0.4);
+    transition: 100ms;
+    transform: scale(1.05);
   }
 }
