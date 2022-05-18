@@ -1,6 +1,8 @@
 import displayController from "./displayController";
 import "./styles.css";
 
+displayController;
+
 let todoItem = (title, description, dueDate, priority) => {
 
   return {title, description, dueDate, priority};
