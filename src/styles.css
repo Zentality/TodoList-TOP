@@ -1,7 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 * {
   margin: 0;
   padding: 0;
-  color: #323232;
+  color: #004a7c;
+  font-family: 'Roboto', sans-serif;
 }
 
 html {
@@ -44,6 +46,71 @@ body {
 
 .container .projectsBar {
   background-color: #e8f1f5;
+  padding: 16px calc(8px + 1vw);
+}
+
+.container .projectsBar .projectsHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 2px solid #005691;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-bottom: calc(8px + 1vh);
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 4px 16px;
+  font-size: 2rem;
+}
+
+.container .projectsBar .projectsHeader button {
+  background-color: #005691;
+  color: #e8f1f5;
+  height: 2rem;
+  width: 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 2rem;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+
+.container .projectsBar ul {
+  list-style: none;
+  -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.container .projectsBar ul li {
+  padding: calc(8px + 1vh) 8px;
+}
+
+.container .projectsBar ul li:nth-child(2n + 1) {
+  background-color: #cadcf0;
+  border-radius: 4px;
+}
+
+.container .projectsBar ul li:hover {
+  background-color: #005691;
+  color: #e8f1f5;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
 
 .container .projectView {
