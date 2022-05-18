@@ -11,7 +11,27 @@
   <div class="addProject">
     <div>
       <span>Add Project <button class="closeAddProject">&times;</button></span>
-      content here
+      <div>
+        <label for="title">Title of Project</label>
+        <input id="title" type="text">
+      </div>
+      <div>
+        <label for="description">Description</label>
+        <input id="description" type="text">
+      </div>
+      <div>
+        <label for="dueDate">When is it due by?</label>
+        <input id="dueDate" type="date">
+      </div>
+      <div>
+        <label for="priority">Level of importance: </label>
+        <select id="priority" name="priority">
+          <option value="1" class="selectOption">High</option>
+          <option value="2" class="selectOption">Medium</option>
+          <option value="3" class="selectOption">Low</option>
+        </select>
+      </div>
+      <button class="submitAddProject">Add</button>
     </div>
   </div>
 
