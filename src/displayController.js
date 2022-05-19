@@ -1,3 +1,5 @@
+import projects from "./projects.js";
+
 let displayController = (() => {
   let addProjectModal = document.querySelector(".addProject")
   let addProjectButton = document.querySelector(".addProjectButton");
@@ -15,6 +17,22 @@ let displayController = (() => {
     addProjectModal.style.display = "none";
   })
 
+  let projectListDom = document.querySelector(".projects>ul");
+  let refreshProjectList = () => {
+    projectListDom.textContent = "";
+    projects.getListOfProjects().forEach((project) => {
+      let tempLi = document.createElement("li");
+      tempLi.textContent = project.title;
+      projectListDom.appendChild(tempLi);
+    })
+  }
+
+  let addProject = document.querySelector(".submitAddProject");
+  addProject.addEventListener(("click"), () => {
+    projects.addProject("Test title", "This is a desc", "date", "High");
+    refreshProjectList();
+    addProjectModal.style.display = "none";
+  })
 
 })();
 
