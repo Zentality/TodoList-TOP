@@ -43,7 +43,7 @@ let displayController = (() => {
       let tempLi = document.createElement("li");
       tempLi.textContent = project.title;
       let deleteButton = document.createElement("button");
-      deleteButton.textContent = "Delete project";
+      deleteButton.textContent = "Delete";
       deleteButton.classList.add("delete");
       tempLi.dataset.index = index;
       tempLi.appendChild(deleteButton);

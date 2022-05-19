@@ -68,6 +68,15 @@ body {
       border-radius: 4px;
       li {
         padding: calc(8px + 1vh) 8px;
+        display: flex;
+        justify-content: space-between;
+        .delete {
+          visibility: hidden;
+          padding: 2px 8px;
+          color: $iceWhite;
+          background-color: rgb(190,30,30);
+          border-radius: 3px;
+        }
         &:nth-child(2n + 1) {
           background-color: rgb(202, 220, 240);
           border-radius: 4px;
@@ -82,6 +91,9 @@ body {
           transform: scale(1.05);
           font-weight: 700;
           letter-spacing: 0.05rem;
+          .delete {
+            visibility: visible;
+          }
         }
       }
     }

@@ -94,6 +94,20 @@ body {
 
 .container .projectsBar ul li {
   padding: calc(8px + 1vh) 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container .projectsBar ul li .delete {
+  visibility: hidden;
+  padding: 2px 8px;
+  color: #e8f1f5;
+  background-color: #be1e1e;
+  border-radius: 3px;
 }
 
 .container .projectsBar ul li:nth-child(2n + 1) {
@@ -114,6 +128,10 @@ body {
           transform: scale(1.05);
   font-weight: 700;
   letter-spacing: 0.05rem;
+}
+
+.container .projectsBar ul li:hover .delete {
+  visibility: visible;
 }
 
 .container .projectView {
