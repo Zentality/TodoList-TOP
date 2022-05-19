@@ -150,13 +150,30 @@ body {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  margin-bottom: calc(8px + 1vh);
+  margin-bottom: calc(4px + 0.5vh);
   padding: 4px 16px;
   font-size: 2rem;
 }
 
 .container .projectView .projectViewHeader .projectPriority {
   font-size: 1.2rem;
+  text-align: end;
+}
+
+.container .projectView .projectViewDesc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 16px;
+}
+
+.container .projectView .projectViewDesc .projectDue {
+  width: calc(128px + 15%);
+  margin-left: 5%;
+  text-align: end;
 }
 
 .footer {

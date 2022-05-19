@@ -106,11 +106,22 @@ body {
       justify-content: space-between;
       border-bottom: 2px solid $blue;
       align-items: flex-end;
-      margin-bottom: calc(8px + 1vh);
+      margin-bottom: calc(4px + 0.5vh);
       padding: 4px 16px;
       font-size: 2rem;
       .projectPriority {
         font-size: 1.2rem;
+        text-align: end;
+      }
+    }
+    .projectViewDesc {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 16px;
+      .projectDue {
+        width: calc(128px + 15%);
+        margin-left: 5%;
+        text-align: end;
       }
     }
   }

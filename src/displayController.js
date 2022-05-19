@@ -52,13 +52,18 @@ let displayController = (() => {
     attachDeleteButtons();
     attachProjectListListeners();
   }
-  refreshProjectList(); //Automatically populate page on load
 
   let loadProject = (index) => {
     let projectFields = document.querySelectorAll(".projectField");
     let project = projects.getListOfProjects()[index];
     projectFields[0].textContent = project.title;
-    projectFields[1].textContent = project.priority;
+    projectFields[1].textContent = (() => {
+      switch (project.priority) {
+        case "1": return "High";
+        case "2": return "Medium";
+        case "3": return "Low";
+      }
+    })();
     projectFields[2].textContent = project.desc;
     projectFields[3].textContent = project.dueDate;
   }
@@ -77,11 +82,16 @@ let displayController = (() => {
       title.value = "";
       description.value = "";
       dueDate = "";
-      priority = "3";
       refreshProjectList();
       addProjectModal.style.display = "none";
     }
   })
+
+  let initialPageLoad = () => {
+    refreshProjectList();
+    loadProject(0);
+  }
+  initialPageLoad();
 
 })();
 
