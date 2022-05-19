@@ -20,12 +20,20 @@ let projects = (() => {
   let getListOfProjects = () => {
     return listOfProjects.slice();
   }
-  
+
   let addProject = (title, desc, dueDate, priority) => {
     listOfProjects.push(project(title, desc, dueDate, priority));
   }
+
+  let removeProject = (index) => {
+    listOfProjects.splice(index, 1);
+  }
   
-  return {getListOfProjects, addProject};
+  return {getListOfProjects, addProject, removeProject};
 })();
+
+projects.addProject("Test Project1", "Description for test project 1", "2022-05-05", "High");
+projects.addProject("Test Project2", "Description for test project 2", "2022-05-05", "High");
+projects.addProject("Test Project3", "Description for test project 3", "2022-05-05", "High");
 
 export default projects;

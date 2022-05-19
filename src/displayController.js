@@ -17,15 +17,33 @@ let displayController = (() => {
     addProjectModal.style.display = "none";
   })
 
+  let attachDeleteButtons = () => {
+    let deleteButtons = document.querySelectorAll(".delete");
+    deleteButtons.forEach((button) => {
+      button.addEventListener(("click"), (e) => {
+        console.log(e.target.parentElement.attributes[0].value);
+        projects.removeProject(e.target.parentElement.attributes[0].value);
+        refreshProjectList();
+      })
+    })
+  }
+
   let projectListDom = document.querySelector(".projects>ul");
   let refreshProjectList = () => {
     projectListDom.textContent = "";
-    projects.getListOfProjects().forEach((project) => {
+    projects.getListOfProjects().forEach((project, index) => {
       let tempLi = document.createElement("li");
       tempLi.textContent = project.title;
+      let deleteButton = document.createElement("button");
+      deleteButton.textContent = "Delete project";
+      deleteButton.classList.add("delete");
+      tempLi.dataset.index = index;
+      tempLi.appendChild(deleteButton);
       projectListDom.appendChild(tempLi);
     })
+    attachDeleteButtons();
   }
+  refreshProjectList(); //Automatically populate page on load
 
   let addProject = document.querySelector(".submitAddProject");
   addProject.addEventListener(("click"), () => {
