@@ -21,9 +21,17 @@ let displayController = (() => {
     let deleteButtons = document.querySelectorAll(".delete");
     deleteButtons.forEach((button) => {
       button.addEventListener(("click"), (e) => {
-        console.log(e.target.parentElement.attributes[0].value);
         projects.removeProject(e.target.parentElement.attributes[0].value);
         refreshProjectList();
+      })
+    })
+  }
+
+  let attachProjectListListeners = () => {
+    let projectList = document.querySelectorAll(".projects>ul>li");
+    projectList.forEach((project) => {
+      project.addEventListener("click", (e) => {
+        loadProject(e.target.attributes[0].value);
       })
     })
   }
@@ -42,8 +50,18 @@ let displayController = (() => {
       projectListDom.appendChild(tempLi);
     })
     attachDeleteButtons();
+    attachProjectListListeners();
   }
   refreshProjectList(); //Automatically populate page on load
+
+  let loadProject = (index) => {
+    let projectFields = document.querySelectorAll(".projectField");
+    let project = projects.getListOfProjects()[index];
+    projectFields[0].textContent = project.title;
+    projectFields[1].textContent = project.priority;
+    projectFields[2].textContent = project.desc;
+    projectFields[3].textContent = project.dueDate;
+  }
 
   let addProject = document.querySelector(".submitAddProject");
   addProject.addEventListener(("click"), () => {
