@@ -29,9 +29,22 @@ let displayController = (() => {
 
   let addProject = document.querySelector(".submitAddProject");
   addProject.addEventListener(("click"), () => {
-    projects.addProject("Test title", "This is a desc", "date", "High");
-    refreshProjectList();
-    addProjectModal.style.display = "none";
+    if (title.value == "" || description.value == "" || dueDate.value == ""){
+      alert("Please fill all inputs");
+    } else {
+      let title = document.querySelector("#title");
+      let description = document.querySelector("#description");
+      let dueDate = document.querySelector("#dueDate");
+      let priority = document.querySelector("#priority");
+      console.log({priority});
+      projects.addProject(title.value, description.value, dueDate.value, priority.value);
+      title.value = "";
+      description.value = "";
+      dueDate = "";
+      priority = "3";
+      refreshProjectList();
+      addProjectModal.style.display = "none";
+    }
   })
 
 })();
