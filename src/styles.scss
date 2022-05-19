@@ -43,6 +43,7 @@ body {
     background-color: $iceWhite;
     padding: 16px calc(8px + 1vw);
     .projectsHeader {
+      height: 2.5rem;
       display: flex;
       border-bottom: 2px solid $blue;
       align-items: flex-end;
@@ -70,6 +71,7 @@ body {
         padding: calc(8px + 1vh) 8px;
         display: flex;
         justify-content: space-between;
+        border-radius: 4px;
         .delete {
           visibility: hidden;
           padding: 2px 8px;
@@ -79,7 +81,6 @@ body {
         }
         &:nth-child(2n + 1) {
           background-color: rgb(202, 220, 240);
-          border-radius: 4px;
         }
         &:hover {
           background-color: $blue;
@@ -88,12 +89,20 @@ body {
           border-radius: 4px;
           box-shadow: 0 0 8px 2px rgba(0,0,0,0.5);
           cursor: pointer;
-          transform: scale(1.05);
+          transform: scale(1.05) !important;
           font-weight: 700;
           letter-spacing: 0.05rem;
           .delete {
             visibility: visible;
           }
+        }
+        &.active {
+          background-color: $blue;
+          color: $iceWhite;
+          box-shadow: 0 0 8px 0 rgba(0,0,0,0.5);
+          transform: scale(1.02);
+          font-weight: 700;
+          letter-spacing: 0.05rem;
         }
       }
     }
@@ -102,6 +111,7 @@ body {
     background-color: $white;
     padding: 16px calc(8px + 1vw);
     .projectViewHeader {
+      height: 2.5rem;
       display: flex;
       justify-content: space-between;
       border-bottom: 2px solid $blue;

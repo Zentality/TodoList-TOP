@@ -31,6 +31,8 @@ let displayController = (() => {
     let projectList = document.querySelectorAll(".projects>ul>li");
     projectList.forEach((project) => {
       project.addEventListener("click", (e) => {
+        projectList.forEach((temp) => {temp.classList.remove("active")});
+        project.classList.add("active");
         loadProject(e.target.attributes[0].value);
       })
     })
@@ -56,6 +58,7 @@ let displayController = (() => {
   let loadProject = (index) => {
     let projectFields = document.querySelectorAll(".projectField");
     let project = projects.getListOfProjects()[index];
+    if (project == undefined){return};
     projectFields[0].textContent = project.title;
     projectFields[1].textContent = (() => {
       switch (project.priority) {
@@ -90,6 +93,9 @@ let displayController = (() => {
   let initialPageLoad = () => {
     refreshProjectList();
     loadProject(0);
+    if (projects.getListOfProjects().length == 0){return};
+    let firstProject = document.querySelector(".projects li");
+    firstProject.classList.add("active");
   }
   initialPageLoad();
 

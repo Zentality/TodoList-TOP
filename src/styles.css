@@ -50,6 +50,7 @@ body {
 }
 
 .container .projectsBar .projectsHeader {
+  height: 2.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -100,6 +101,7 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  border-radius: 4px;
 }
 
 .container .projectsBar ul li .delete {
@@ -112,7 +114,6 @@ body {
 
 .container .projectsBar ul li:nth-child(2n + 1) {
   background-color: #cadcf0;
-  border-radius: 4px;
 }
 
 .container .projectsBar ul li:hover {
@@ -124,8 +125,8 @@ body {
   -webkit-box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.5);
           box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.5);
   cursor: pointer;
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
+  -webkit-transform: scale(1.05) !important;
+          transform: scale(1.05) !important;
   font-weight: 700;
   letter-spacing: 0.05rem;
 }
@@ -134,12 +135,24 @@ body {
   visibility: visible;
 }
 
+.container .projectsBar ul li.active {
+  background-color: #005691;
+  color: #e8f1f5;
+  -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+}
+
 .container .projectView {
   background-color: #fafafa;
   padding: 16px calc(8px + 1vw);
 }
 
 .container .projectView .projectViewHeader {
+  height: 2.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
