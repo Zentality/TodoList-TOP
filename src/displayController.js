@@ -98,6 +98,7 @@ let displayController = (() => {
     firstProject.classList.add("active");
   }
   initialPageLoad();
+  
 
 })();
 
