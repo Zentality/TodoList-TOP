@@ -215,6 +215,7 @@ body {
   height: 100vh;
   width: 100vw;
   background-color: rgba(0,0,0,0.5);
+  z-index: 1;
   &>div {
     background-color: $blue;
     padding: 16px;
@@ -226,6 +227,9 @@ body {
     flex-direction: column;
     color: $iceWhite;
     justify-content: space-between;
+    button {
+      color: $darkBlue;
+    }
     span {
       color: $iceWhite;
       display: flex;
