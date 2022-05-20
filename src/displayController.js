@@ -45,8 +45,6 @@ const displayController = (() => {
     })
   })();
 
-
-
   const editProjects = (() => {
     const editProjectModal = document.querySelector(".editProject")
     const closeEditProject = document.querySelector(".closeEditProject");
@@ -86,7 +84,17 @@ const displayController = (() => {
       }
     })
 
-    return {editProjectModal};
+    const updateModal = () => {
+      console.log(editProjectModal.dataset.projectIndex);
+      let tempProject = projects.getListOfProjects()[editProjectModal.dataset.projectIndex];
+      title.value = tempProject.title;
+      description.value = tempProject.desc;
+      dueDate.value = tempProject.dueDate;
+      priority.value = tempProject.priority;
+      editProjectModal.style.display = "none";
+    }
+
+    return {editProjectModal, updateModal};
   })();
 
 
@@ -110,8 +118,9 @@ const displayController = (() => {
     editButton.textContent = "Edit";
     editButton.classList.add("edit");
     editButton.addEventListener(("click"), (e) => {
-      editProjects.editProjectModal.style.display = "flex";
       editProjects.editProjectModal.dataset.projectIndex = e.target.parentElement.dataset.index;
+      editProjects.updateModal();
+      editProjects.editProjectModal.style.display = "flex";
       e.stopPropagation();
       refreshProjectList();
     })

@@ -39,7 +39,6 @@ const projects = (() => {
     listOfProjects.forEach((project) => {
       project.isActive = false;
     })
-    console.log(index);
     listOfProjects[index].isActive = true;
   }
   
