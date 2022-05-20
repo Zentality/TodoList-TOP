@@ -176,6 +176,10 @@ body {
   letter-spacing: 0.05rem;
 }
 
+.container .projectsBar ul li.active span > span {
+  display: block;
+}
+
 .container .projectView {
   background-color: #fafafa;
   padding: 16px calc(8px + 1vw);

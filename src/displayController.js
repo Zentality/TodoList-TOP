@@ -41,7 +41,7 @@ const displayController = (() => {
     deleteButton.textContent = "Delete";
     deleteButton.classList.add("delete");
     deleteButton.addEventListener(("click"), (e) => {
-      console.log(e.target.parentElement.dataset.index);
+      e.stopPropagation();
       projects.removeProject(e.target.parentElement.dataset.index);
       refreshProjectList();
     })
@@ -53,6 +53,7 @@ const displayController = (() => {
     editButton.textContent = "Edit";
     editButton.classList.add("edit");
     editButton.addEventListener(("click"), (e) => {
+      e.stopPropagation();
       refreshProjectList();
     })
     return editButton;
@@ -62,10 +63,9 @@ const displayController = (() => {
     let projectList = document.querySelectorAll(".projects>ul>li");
     projectList.forEach((project) => {
       project.addEventListener("click", (e) => {
-        if (e.target.attributes[0].value !== "delete"){
-          projects.setActiveProject(e.target.attributes[0].value);
-          refreshProjectList();
-        }
+        console.log(e);
+        projects.setActiveProject(e.target.dataset.index);
+        refreshProjectList();
       })
     })
   }
