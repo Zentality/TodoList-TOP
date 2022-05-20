@@ -8,7 +8,7 @@
   <script src="main.js" defer></script>
 </head>
 <body>
-  <div class="addProject">
+  <div class="addProject modal">
     <div>
       <span>Add Project <button class="closeAddProject">&times;</button></span>
       <div>
@@ -32,6 +32,33 @@
         </select>
       </div>
       <button class="submitAddProject">Add</button>
+    </div>
+  </div>
+
+  <div class="editProject modal">
+    <div>
+      <span>Add Project <button class="closeEditProject">&times;</button></span>
+      <div>
+        <label for="titleEdit">Title of Project</label>
+        <input id="titleEdit" type="text">
+      </div>
+      <div>
+        <label for="descriptionEdit">Description</label>
+        <input id="descriptionEdit" type="text">
+      </div>
+      <div>
+        <label for="dueDateEdit">When is it due by?</label>
+        <input id="dueDateEdit" type="date">
+      </div>
+      <div>
+        <label for="priorityEdit">Level of importance: </label>
+        <select id="priorityEdit" name="priority">
+          <option value="High" class="selectOption">High</option>
+          <option value="Medium" class="selectOption">Medium</option>
+          <option value="Low" class="selectOption">Low</option>
+        </select>
+      </div>
+      <button class="submitEditProject">Confirm Changes</button>
     </div>
   </div>
 
