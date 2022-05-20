@@ -27,7 +27,12 @@ const projects = (() => {
     }
   }
   const removeProject = (index) => {
-    listOfProjects.splice(index, 1);
+    if (listOfProjects[index].isActive == true){
+      listOfProjects.splice(index, 1);
+      setActiveProject(0);
+    } else {
+      listOfProjects.splice(index, 1);
+    }
   }
   const setActiveProject = (index) => {
     if (listOfProjects.length === 0){return};

@@ -22,7 +22,8 @@ let displayController = (() => {
     deleteButton.textContent = "Delete";
     deleteButton.classList.add("delete");
     deleteButton.addEventListener(("click"), (e) => {
-      projects.removeProject(e.target.parentElement.attributes[0].value);
+      console.log(e.target.parentElement.dataset.index);
+      projects.removeProject(e.target.parentElement.dataset.index);
       refreshProjectList();
     })
     return deleteButton;
