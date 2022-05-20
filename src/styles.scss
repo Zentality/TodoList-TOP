@@ -184,7 +184,7 @@ body {
   }
 }
 
-.addProject {
+.modal {
   display: none;
   justify-content: center;
   align-items: center;
@@ -246,7 +246,7 @@ body {
         background-color: $white;
       }
     }
-    .submitAddProject {
+    &>button {
       height: 2.5rem;
       @include flex-center();
       font-size: 2rem;

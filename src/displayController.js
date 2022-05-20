@@ -1,40 +1,64 @@
 import projects from "./projects.js";
 
 const displayController = (() => {
-  const projectListDom = document.querySelector(".projects>ul");
-  const addProjectModal = document.querySelector(".addProject")
-  const addProjectButton = document.querySelector(".addProjectButton");
-  const closeAddProject = document.querySelector(".closeAddProject");
-  const addProject = document.querySelector(".submitAddProject");
+  const addProjects = (() => {
+    const addProjectModal = document.querySelector(".addProject")
+    const addProjectButton = document.querySelector(".addProjectButton");
+    const closeAddProject = document.querySelector(".closeAddProject");
+    const addProject = document.querySelector(".submitAddProject");
+    
+    addProjectButton.addEventListener("click", () => {
+      addProjectModal.style.display = "flex";
+    })
+    addProjectModal.addEventListener("click", (e) => {
+      if (e.target == addProjectModal){
+        addProjectModal.style.display = "none";
+      }
+    })
+    addProject.addEventListener(("click"), () => {
+      if (title.value == "" || dueDate.value == ""){
+        alert("Please fill all inputs");
+      } else {
+        let title = document.querySelector("#title");
+        let description = document.querySelector("#description");
+        let dueDate = document.querySelector("#dueDate");
+        let priority = document.querySelector("#priority");
+        console.log({priority});
+        projects.addProject(title.value, description.value, dueDate.value, priority.value);
+        title.value = "";
+        description.value = "";
+        dueDate.value = "";
+        addProjectModal.style.display = "none";
+        refreshProjectList();
+      }
+    })
+    closeAddProject.addEventListener("click", () => {
+      addProjectModal.style.display = "none";
+    })
+  })();
 
-  addProjectButton.addEventListener("click", () => {
-    addProjectModal.style.display = "flex";
-  })
-  addProjectModal.addEventListener("click", (e) => {
-    if (e.target == addProjectModal){
-      addProjectModal.style.display = "none";
-    }
-  })
-  addProject.addEventListener(("click"), () => {
-    if (title.value == "" || dueDate.value == ""){
-      alert("Please fill all inputs");
-    } else {
-      let title = document.querySelector("#title");
-      let description = document.querySelector("#description");
-      let dueDate = document.querySelector("#dueDate");
-      let priority = document.querySelector("#priority");
-      console.log({priority});
-      projects.addProject(title.value, description.value, dueDate.value, priority.value);
-      title.value = "";
-      description.value = "";
-      dueDate.value = "";
-      addProjectModal.style.display = "none";
-      refreshProjectList();
-    }
-  })
-  closeAddProject.addEventListener("click", () => {
-    addProjectModal.style.display = "none";
-  })
+
+
+  const editProjects = (() => {
+    const editProjectModal = document.querySelector(".editProject")
+    const closeEditProject = document.querySelector(".closeEditProject");
+    const editProject = document.querySelector(".submitEditProject");
+
+    closeEditProject.addEventListener(("click"), () => {
+      editProjectModal.style.display = "none";
+    })
+    editProjectModal.addEventListener("click", (e) => {
+      if (e.target == editProjectModal){
+        editProjectModal.style.display = "none";
+      }
+    })
+
+    return {editProjectModal};
+  })();
+
+
+  
+  const projectListDom = document.querySelector(".projects>ul");
 
   const createDeleteButton = () => {
     let deleteButton = document.createElement("button");
@@ -53,6 +77,7 @@ const displayController = (() => {
     editButton.textContent = "Edit";
     editButton.classList.add("edit");
     editButton.addEventListener(("click"), (e) => {
+      editProjects.editProjectModal.style.display = "flex";
       e.stopPropagation();
       refreshProjectList();
     })
