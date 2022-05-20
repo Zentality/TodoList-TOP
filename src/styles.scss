@@ -15,12 +15,13 @@ $darkGray: rgb(50,50,50);
 * {
   margin: 0;
   padding: 0;
-  color: $darkBlue;
+  color: inherit;
   font-family: 'Roboto', sans-serif;
 }
 
 html {
   height: 100vh;
+  color: $darkBlue;
 }
 
 body {
@@ -82,21 +83,11 @@ body {
             color: $darkBlue;
           }
         }
-        button {
-          visibility: hidden;
-          padding: 2px 8px;
-          color: $iceWhite;
-          border-radius: 3px;
-          margin: 0 4px;
-          font-weight: 700;
-          letter-spacing: 0.05rem
-        }
         .delete {
-          background-color: rgb(190,30,30);
+          margin: 0 4px;
         }
         .edit {
           margin-left: auto;
-          background-color: rgba(0,0,0,0.4);
         }
         &:nth-child(2n + 1) {
           background-color: rgb(202, 220, 240);
@@ -157,6 +148,39 @@ body {
         margin-left: 5%;
         text-align: end;
       }
+    }
+  }
+}
+
+.todoItems {
+  color: $iceWhite;
+  margin-top: 16px;
+  list-style: none;
+  border: 2px solid $darkBlue;
+  border-radius: 4px;
+  box-shadow: 0 0 8px 2px rgba(0,0,0,0.4);
+  li {
+    background-color: $blue;
+    border: 2px solid $darkBlue;
+    min-height: 20px;
+    padding: 8px;
+    cursor: pointer;
+    .todoHeader {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      .todoTitle {
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: 0.05rem;
+      }
+    }
+    &:hover {
+      transition: 300ms;
+      button {
+        visibility: visible;
+      }
+      background-color: rgb(20, 106, 165);
     }
   }
 }
@@ -262,4 +286,20 @@ button {
     transition: 100ms;
     transform: scale(1.03);
   }
+}
+
+.delete {
+  background-color: rgb(190,30,30);
+}
+.edit {
+  background-color: rgba(0,0,0,0.4);
+}
+.delete, .edit {
+  visibility: hidden;
+  padding: 2px 8px;
+  color: $iceWhite;
+  border-radius: 3px;
+  margin: 0 4px;
+  font-weight: 700;
+  letter-spacing: 0.05rem
 }

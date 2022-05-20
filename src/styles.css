@@ -2,12 +2,13 @@
 * {
   margin: 0;
   padding: 0;
-  color: #004a7c;
+  color: inherit;
   font-family: 'Roboto', sans-serif;
 }
 
 html {
   height: 100vh;
+  color: #004a7c;
 }
 
 body {
@@ -119,23 +120,12 @@ body {
   color: #004a7c;
 }
 
-.container .projectsBar ul li button {
-  visibility: hidden;
-  padding: 2px 8px;
-  color: #e8f1f5;
-  border-radius: 3px;
-  margin: 0 4px;
-  font-weight: 700;
-  letter-spacing: 0.05rem;
-}
-
 .container .projectsBar ul li .delete {
-  background-color: #be1e1e;
+  margin: 0 4px;
 }
 
 .container .projectsBar ul li .edit {
   margin-left: auto;
-  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .container .projectsBar ul li:nth-child(2n + 1) {
@@ -220,6 +210,50 @@ body {
   width: calc(128px + 15%);
   margin-left: 5%;
   text-align: end;
+}
+
+.todoItems {
+  color: #e8f1f5;
+  margin-top: 16px;
+  list-style: none;
+  border: 2px solid #004a7c;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.4);
+}
+
+.todoItems li {
+  background-color: #005691;
+  border: 2px solid #004a7c;
+  min-height: 20px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.todoItems li .todoHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 0.85rem;
+}
+
+.todoItems li .todoHeader .todoTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+}
+
+.todoItems li:hover {
+  -webkit-transition: 300ms;
+  transition: 300ms;
+  background-color: #146aa5;
+}
+
+.todoItems li:hover button {
+  visibility: visible;
 }
 
 .footer {
@@ -396,5 +430,23 @@ button:hover {
   transition: 100ms;
   -webkit-transform: scale(1.03);
           transform: scale(1.03);
+}
+
+.delete {
+  background-color: #be1e1e;
+}
+
+.edit {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.delete, .edit {
+  visibility: hidden;
+  padding: 2px 8px;
+  color: #e8f1f5;
+  border-radius: 3px;
+  margin: 0 4px;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
 }
 /*# sourceMappingURL=styles.css.map */
