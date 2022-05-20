@@ -75,7 +75,7 @@ const displayController = (() => {
       if (title.value == "" || dueDate.value == ""){
         alert("Please fill all inputs");
       } else {
-        projects.addProject(title.value, description.value, dueDate.value, priority.value);
+        projects.editProject((editProjectModal.dataset.projectIndex), title.value, description.value, dueDate.value, priority.value);
         title.value = "";
         description.value = "";
         dueDate.value = "";
@@ -85,7 +85,6 @@ const displayController = (() => {
     })
 
     const updateModal = () => {
-      console.log(editProjectModal.dataset.projectIndex);
       let tempProject = projects.getListOfProjects()[editProjectModal.dataset.projectIndex];
       title.value = tempProject.title;
       description.value = tempProject.desc;

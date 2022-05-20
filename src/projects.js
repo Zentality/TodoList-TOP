@@ -41,8 +41,15 @@ const projects = (() => {
     })
     listOfProjects[index].isActive = true;
   }
+  const editProject = (index, title, desc, dueDate, priority) => {
+    const tempProject = listOfProjects[index];
+    tempProject.title = title;
+    tempProject.desc = desc;
+    tempProject.dueDate = dueDate;
+    tempProject.priority = priority;
+  }
   
-  return {getListOfProjects, addProject, removeProject, setActiveProject};
+  return {getListOfProjects, addProject, removeProject, setActiveProject, editProject};
 })();
 
 
