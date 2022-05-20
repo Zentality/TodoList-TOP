@@ -98,9 +98,6 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   border-radius: 4px;
 }
 
@@ -123,12 +120,23 @@ body {
   color: #e8f1f5;
 }
 
-.container .projectsBar ul li .delete {
+.container .projectsBar ul li button {
   visibility: hidden;
   padding: 2px 8px;
   color: #e8f1f5;
-  background-color: #be1e1e;
   border-radius: 3px;
+  margin: 0 4px;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+}
+
+.container .projectsBar ul li .delete {
+  background-color: #be1e1e;
+}
+
+.container .projectsBar ul li .edit {
+  margin-left: auto;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .container .projectsBar ul li:nth-child(2n + 1) {
@@ -153,7 +161,7 @@ body {
   display: block;
 }
 
-.container .projectsBar ul li:hover .delete {
+.container .projectsBar ul li:hover button {
   visibility: visible;
 }
 

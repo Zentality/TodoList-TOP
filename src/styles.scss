@@ -70,7 +70,6 @@ body {
       li {
         padding: calc(8px + 1vh) 8px;
         display: flex;
-        justify-content: space-between;
         border-radius: 4px;
         span {
           color: inherit;
@@ -84,12 +83,21 @@ body {
             color: $iceWhite;
           }
         }
-        .delete {
+        button {
           visibility: hidden;
           padding: 2px 8px;
           color: $iceWhite;
-          background-color: rgb(190,30,30);
           border-radius: 3px;
+          margin: 0 4px;
+          font-weight: 700;
+          letter-spacing: 0.05rem
+        }
+        .delete {
+          background-color: rgb(190,30,30);
+        }
+        .edit {
+          margin-left: auto;
+          background-color: rgba(0,0,0,0.4);
         }
         &:nth-child(2n + 1) {
           background-color: rgb(202, 220, 240);
@@ -106,7 +114,7 @@ body {
           span>span {
             display: block;
           }
-          .delete {
+          button {
             visibility: visible;
           }
         }

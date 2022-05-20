@@ -48,6 +48,16 @@ const displayController = (() => {
     return deleteButton;
   }
 
+  const createEditButton = () => {
+    let editButton = document.createElement("button");
+    editButton.textContent = "Edit";
+    editButton.classList.add("edit");
+    editButton.addEventListener(("click"), (e) => {
+      refreshProjectList();
+    })
+    return editButton;
+  }
+
   const attachProjectListListeners = () => {
     let projectList = document.querySelectorAll(".projects>ul>li");
     projectList.forEach((project) => {
@@ -72,10 +82,10 @@ const displayController = (() => {
       const projectTitle = document.createElement("span");
       projectTitle.textContent = project.title;
       const projectDetails = document.createElement("span");
-      projectDetails.textContent = `Due: ${project.dueDate} Priority: ${project.priority}`
+      projectDetails.textContent = `Due: ${project.dueDate}, Priority: ${project.priority}`
       projectTitle.appendChild(projectDetails);
       tempLi.dataset.index = index;
-      tempLi.append(projectTitle, createDeleteButton());
+      tempLi.append(projectTitle, createEditButton(), createDeleteButton());
       projectListDom.appendChild(tempLi);
     })
     attachProjectListListeners();
