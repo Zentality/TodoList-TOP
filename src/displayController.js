@@ -17,14 +17,15 @@ let displayController = (() => {
     addProjectModal.style.display = "none";
   })
 
-  let attachDeleteButtons = () => {
-    let deleteButtons = document.querySelectorAll(".delete");
-    deleteButtons.forEach((button) => {
-      button.addEventListener(("click"), (e) => {
-        projects.removeProject(e.target.parentElement.attributes[0].value);
-        refreshProjectList();
-      })
+  let createDeleteButton = () => {
+    let deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.classList.add("delete");
+    deleteButton.addEventListener(("click"), (e) => {
+      projects.removeProject(e.target.parentElement.attributes[0].value);
+      refreshProjectList();
     })
+    return deleteButton;
   }
 
   let attachProjectListListeners = () => {
@@ -49,14 +50,10 @@ let displayController = (() => {
         loadProject(index);
       }
       tempLi.textContent = project.title;
-      let deleteButton = document.createElement("button");
-      deleteButton.textContent = "Delete";
-      deleteButton.classList.add("delete");
       tempLi.dataset.index = index;
-      tempLi.appendChild(deleteButton);
+      tempLi.appendChild(createDeleteButton());
       projectListDom.appendChild(tempLi);
     })
-    attachDeleteButtons();
     attachProjectListListeners();
   }
 
