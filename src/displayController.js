@@ -31,8 +31,10 @@ let displayController = (() => {
     let projectList = document.querySelectorAll(".projects>ul>li");
     projectList.forEach((project) => {
       project.addEventListener("click", (e) => {
-        loadProject(e.target.attributes[0].value);
-        refreshProjectList();
+        if (e.target.attributes[0].value !== "delete"){
+          projects.setActiveProject(e.target.attributes[0].value);
+          refreshProjectList();
+        }
       })
     })
   }
@@ -44,6 +46,7 @@ let displayController = (() => {
       let tempLi = document.createElement("li");
       if (project.isActive){
         tempLi.classList.add("active");
+        loadProject(index);
       }
       tempLi.textContent = project.title;
       let deleteButton = document.createElement("button");
@@ -58,7 +61,6 @@ let displayController = (() => {
   }
 
   let loadProject = (index) => {
-    projects.setActiveProject(index);
     let projectFields = document.querySelectorAll(".projectField");
     let project = projects.getListOfProjects()[index];
     if (project == undefined){return};
@@ -88,8 +90,8 @@ let displayController = (() => {
       title.value = "";
       description.value = "";
       dueDate = "";
-      refreshProjectList();
       addProjectModal.style.display = "none";
+      refreshProjectList();
     }
   })
 

@@ -30,11 +30,11 @@ const projects = (() => {
     listOfProjects.splice(index, 1);
   }
   const setActiveProject = (index) => {
+    if (listOfProjects.length === 0){return};
     listOfProjects.forEach((project) => {
       project.isActive = false;
     })
     listOfProjects[index].isActive = true;
-    console.log(getListOfProjects());
   }
   
   return {getListOfProjects, addProject, removeProject, setActiveProject};
@@ -45,6 +45,8 @@ const projects = (() => {
 projects.addProject("Example Project", "This is a description for a project example, to get started making your own projects click the plus button on the projects panel", "2022-05-05", "1");
 projects.addProject("Test Project2", "Description for test project 2", "2022-05-05", "2");
 projects.addProject("Test Project3", "Description for test project 3", "2022-05-05", "1");
-console.log(projects.getListOfProjects());
+projects.addProject("Example Project", "This is a description for a project example, to get started making your own projects click the plus button on the projects panel", "2022-05-05", "1");
+projects.addProject("Test Project2", "Description for test project 2", "2022-05-05", "2");
+projects.addProject("Test Project3", "Description for test project 3", "2022-05-05", "1");
 
 export default projects;
