@@ -6,6 +6,11 @@ const displayController = (() => {
     const addProjectButton = document.querySelector(".addProjectButton");
     const closeAddProject = document.querySelector(".closeAddProject");
     const addProject = document.querySelector(".submitAddProject");
+
+    let title = document.querySelector("#title");
+    let description = document.querySelector("#description");
+    let dueDate = document.querySelector("#dueDate");
+    let priority = document.querySelector("#priority");
     
     addProjectButton.addEventListener("click", () => {
       addProjectModal.style.display = "flex";
@@ -13,17 +18,16 @@ const displayController = (() => {
     addProjectModal.addEventListener("click", (e) => {
       if (e.target == addProjectModal){
         addProjectModal.style.display = "none";
+        title.value = "";
+        description.value = "";
+        dueDate.value = "";
+        addProjectModal.style.display = "none";
       }
     })
     addProject.addEventListener(("click"), () => {
       if (title.value == "" || dueDate.value == ""){
         alert("Please fill all inputs");
       } else {
-        let title = document.querySelector("#title");
-        let description = document.querySelector("#description");
-        let dueDate = document.querySelector("#dueDate");
-        let priority = document.querySelector("#priority");
-        console.log({priority});
         projects.addProject(title.value, description.value, dueDate.value, priority.value);
         title.value = "";
         description.value = "";
@@ -33,6 +37,10 @@ const displayController = (() => {
       }
     })
     closeAddProject.addEventListener("click", () => {
+      addProjectModal.style.display = "none";
+      title.value = "";
+      description.value = "";
+      dueDate.value = "";
       addProjectModal.style.display = "none";
     })
   })();
@@ -44,12 +52,37 @@ const displayController = (() => {
     const closeEditProject = document.querySelector(".closeEditProject");
     const editProject = document.querySelector(".submitEditProject");
 
+    let title = document.querySelector("#titleEdit");
+    let description = document.querySelector("#descriptionEdit");
+    let dueDate = document.querySelector("#dueDateEdit");
+    let priority = document.querySelector("#priorityEdit");
+
     closeEditProject.addEventListener(("click"), () => {
+      editProjectModal.style.display = "none";
+      title.value = "";
+      description.value = "";
+      dueDate.value = "";
       editProjectModal.style.display = "none";
     })
     editProjectModal.addEventListener("click", (e) => {
       if (e.target == editProjectModal){
         editProjectModal.style.display = "none";
+        title.value = "";
+        description.value = "";
+        dueDate.value = "";
+        editProjectModal.style.display = "none";
+      }
+    })
+    editProject.addEventListener(("click"), () => {
+      if (title.value == "" || dueDate.value == ""){
+        alert("Please fill all inputs");
+      } else {
+        projects.addProject(title.value, description.value, dueDate.value, priority.value);
+        title.value = "";
+        description.value = "";
+        dueDate.value = "";
+        editProjectModal.style.display = "none";
+        refreshProjectList();
       }
     })
 
@@ -57,7 +90,7 @@ const displayController = (() => {
   })();
 
 
-  
+
   const projectListDom = document.querySelector(".projects>ul");
 
   const createDeleteButton = () => {
@@ -78,6 +111,7 @@ const displayController = (() => {
     editButton.classList.add("edit");
     editButton.addEventListener(("click"), (e) => {
       editProjects.editProjectModal.style.display = "flex";
+      editProjects.editProjectModal.dataset.projectIndex = e.target.parentElement.dataset.index;
       e.stopPropagation();
       refreshProjectList();
     })
