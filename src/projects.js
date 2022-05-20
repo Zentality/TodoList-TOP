@@ -2,7 +2,7 @@ const todoItem = (title, description, dueDate, priority) => {
   return {title, description, dueDate, priority};
 }
 
-let project = (title, desc, dueDate, priority) => {
+const project = (title, desc, dueDate, priority) => {
   let isActive = false;
   const todoList = [];
   const getToDoList = () => {

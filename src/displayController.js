@@ -1,10 +1,11 @@
 import projects from "./projects.js";
 
-let displayController = (() => {
-  let projectListDom = document.querySelector(".projects>ul");
-  let addProjectModal = document.querySelector(".addProject")
-  let addProjectButton = document.querySelector(".addProjectButton");
-  let closeAddProject = document.querySelector(".closeAddProject");
+const displayController = (() => {
+  const projectListDom = document.querySelector(".projects>ul");
+  const addProjectModal = document.querySelector(".addProject")
+  const addProjectButton = document.querySelector(".addProjectButton");
+  const closeAddProject = document.querySelector(".closeAddProject");
+  const addProject = document.querySelector(".submitAddProject");
 
   addProjectButton.addEventListener("click", () => {
     addProjectModal.style.display = "flex";
@@ -14,12 +15,28 @@ let displayController = (() => {
       addProjectModal.style.display = "none";
     }
   })
-
+  addProject.addEventListener(("click"), () => {
+    if (title.value == "" || dueDate.value == ""){
+      alert("Please fill all inputs");
+    } else {
+      let title = document.querySelector("#title");
+      let description = document.querySelector("#description");
+      let dueDate = document.querySelector("#dueDate");
+      let priority = document.querySelector("#priority");
+      console.log({priority});
+      projects.addProject(title.value, description.value, dueDate.value, priority.value);
+      title.value = "";
+      description.value = "";
+      dueDate.value = "";
+      addProjectModal.style.display = "none";
+      refreshProjectList();
+    }
+  })
   closeAddProject.addEventListener("click", () => {
     addProjectModal.style.display = "none";
   })
 
-  let createDeleteButton = () => {
+  const createDeleteButton = () => {
     let deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
     deleteButton.classList.add("delete");
@@ -31,7 +48,7 @@ let displayController = (() => {
     return deleteButton;
   }
 
-  let attachProjectListListeners = () => {
+  const attachProjectListListeners = () => {
     let projectList = document.querySelectorAll(".projects>ul>li");
     projectList.forEach((project) => {
       project.addEventListener("click", (e) => {
@@ -43,7 +60,7 @@ let displayController = (() => {
     })
   }
 
-  let refreshProjectList = () => {
+  const refreshProjectList = () => {
     projectListDom.textContent = "";
     unloadProjectFields();
     projects.getListOfProjects().forEach((project, index) => {
@@ -83,28 +100,7 @@ let displayController = (() => {
     })
   }
 
-  const addProject = document.querySelector(".submitAddProject");
-  addProject.addEventListener(("click"), () => {
-    if (title.value == "" || dueDate.value == ""){
-      alert("Please fill all inputs");
-    } else {
-      let title = document.querySelector("#title");
-      let description = document.querySelector("#description");
-      let dueDate = document.querySelector("#dueDate");
-      let priority = document.querySelector("#priority");
-      console.log({priority});
-      projects.addProject(title.value, description.value, dueDate.value, priority.value);
-      title.value = "";
-      description.value = "";
-      dueDate = "";
-      addProjectModal.style.display = "none";
-      refreshProjectList();
-    }
-  })
-
   refreshProjectList(); //Initial page load
-  
-
 })();
 
 export default displayController;
