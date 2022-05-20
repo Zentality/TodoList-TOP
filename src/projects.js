@@ -1,9 +1,6 @@
 const todoItem = (title, description, dueDate, priority) => {
-
   return {title, description, dueDate, priority};
 }
-
-
 
 let project = (title, desc, dueDate, priority) => {
   let isActive = false;
@@ -23,26 +20,24 @@ const projects = (() => {
   const getListOfProjects = () => {
     return listOfProjects.slice();
   }
-
   const addProject = (title, desc, dueDate, priority) => {
     listOfProjects.push(project(title, desc, dueDate, priority));
     if (listOfProjects.length === 1){
       setActiveProject(0);
     }
   }
-
   const removeProject = (index) => {
     listOfProjects.splice(index, 1);
   }
-
   const setActiveProject = (index) => {
     listOfProjects.forEach((project) => {
       project.isActive = false;
     })
     listOfProjects[index].isActive = true;
+    console.log(getListOfProjects());
   }
   
-  return {getListOfProjects, addProject, removeProject};
+  return {getListOfProjects, addProject, removeProject, setActiveProject};
 })();
 
 

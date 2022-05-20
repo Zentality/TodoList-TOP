@@ -31,9 +31,8 @@ let displayController = (() => {
     let projectList = document.querySelectorAll(".projects>ul>li");
     projectList.forEach((project) => {
       project.addEventListener("click", (e) => {
-        projectList.forEach((temp) => {temp.classList.remove("active")});
-        project.classList.add("active");
         loadProject(e.target.attributes[0].value);
+        refreshProjectList();
       })
     })
   }
@@ -43,6 +42,9 @@ let displayController = (() => {
     projectListDom.textContent = "";
     projects.getListOfProjects().forEach((project, index) => {
       let tempLi = document.createElement("li");
+      if (project.isActive){
+        tempLi.classList.add("active");
+      }
       tempLi.textContent = project.title;
       let deleteButton = document.createElement("button");
       deleteButton.textContent = "Delete";
@@ -56,6 +58,7 @@ let displayController = (() => {
   }
 
   let loadProject = (index) => {
+    projects.setActiveProject(index);
     let projectFields = document.querySelectorAll(".projectField");
     let project = projects.getListOfProjects()[index];
     if (project == undefined){return};
@@ -73,7 +76,7 @@ let displayController = (() => {
 
   let addProject = document.querySelector(".submitAddProject");
   addProject.addEventListener(("click"), () => {
-    if (title.value == "" || description.value == "" || dueDate.value == ""){
+    if (title.value == "" || dueDate.value == ""){
       alert("Please fill all inputs");
     } else {
       let title = document.querySelector("#title");
@@ -93,9 +96,6 @@ let displayController = (() => {
   let initialPageLoad = () => {
     refreshProjectList();
     loadProject(0);
-    if (projects.getListOfProjects().length == 0){return};
-    let firstProject = document.querySelector(".projects li");
-    firstProject.classList.add("active");
   }
   initialPageLoad();
   
