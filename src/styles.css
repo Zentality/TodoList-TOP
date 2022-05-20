@@ -114,10 +114,9 @@ body {
 }
 
 .container .projectsBar ul li span span {
-  display: none;
   padding: 0;
   font-size: 0.8rem;
-  color: #e8f1f5;
+  color: #004a7c;
 }
 
 .container .projectsBar ul li button {
@@ -157,12 +156,12 @@ body {
   font-weight: 700;
 }
 
-.container .projectsBar ul li:hover span > span {
-  display: block;
-}
-
 .container .projectsBar ul li:hover button {
   visibility: visible;
+}
+
+.container .projectsBar ul li:hover span > span {
+  color: #e8f1f5;
 }
 
 .container .projectsBar ul li.active {
@@ -177,7 +176,7 @@ body {
 }
 
 .container .projectsBar ul li.active span > span {
-  display: block;
+  color: #e8f1f5;
 }
 
 .container .projectView {

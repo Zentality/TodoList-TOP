@@ -77,10 +77,9 @@ body {
           display: flex;
           flex-direction: column;
           span {
-            display: none;
             padding: 0;
             font-size: 0.8rem;
-            color: $iceWhite;
+            color: $darkBlue;
           }
         }
         button {
@@ -111,23 +110,23 @@ body {
           cursor: pointer;
           transform: scale(1.05) !important;
           font-weight: 700;
-          span>span {
-            display: block;
-          }
           button {
             visibility: visible;
           }
+          span>span {
+            color: $iceWhite;
+          }
         }
         &.active {
-          span>span {
-            display: block;
-          }
           background-color: $blue;
           color: $iceWhite;
           box-shadow: 0 0 8px 0 rgba(0,0,0,0.5);
           transform: scale(1.02);
           font-weight: 700;
           letter-spacing: 0.05rem;
+          span>span {
+            color: $iceWhite;
+          }
         }
       }
     }
