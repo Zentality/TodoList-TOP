@@ -1,8 +1,11 @@
 import projects from "./projects.js";
 
 let displayController = (() => {
+  let projectListDom = document.querySelector(".projects>ul");
   let addProjectModal = document.querySelector(".addProject")
   let addProjectButton = document.querySelector(".addProjectButton");
+  let closeAddProject = document.querySelector(".closeAddProject");
+
   addProjectButton.addEventListener("click", () => {
     addProjectModal.style.display = "flex";
   })
@@ -12,7 +15,6 @@ let displayController = (() => {
     }
   })
 
-  let closeAddProject = document.querySelector(".closeAddProject");
   closeAddProject.addEventListener("click", () => {
     addProjectModal.style.display = "none";
   })
@@ -41,9 +43,9 @@ let displayController = (() => {
     })
   }
 
-  let projectListDom = document.querySelector(".projects>ul");
   let refreshProjectList = () => {
     projectListDom.textContent = "";
+    unloadProjectFields();
     projects.getListOfProjects().forEach((project, index) => {
       let tempLi = document.createElement("li");
       if (project.isActive){
@@ -58,7 +60,7 @@ let displayController = (() => {
     attachProjectListListeners();
   }
 
-  let loadProject = (index) => {
+  const loadProject = (index) => {
     let projectFields = document.querySelectorAll(".projectField");
     let project = projects.getListOfProjects()[index];
     if (project == undefined){return};
@@ -74,7 +76,14 @@ let displayController = (() => {
     projectFields[3].textContent = project.dueDate;
   }
 
-  let addProject = document.querySelector(".submitAddProject");
+  const unloadProjectFields = () => {
+    const projectFields = document.querySelectorAll(".projectField");
+    projectFields.forEach((field) => {
+      field.textContent = "";
+    })
+  }
+
+  const addProject = document.querySelector(".submitAddProject");
   addProject.addEventListener(("click"), () => {
     if (title.value == "" || dueDate.value == ""){
       alert("Please fill all inputs");
@@ -93,11 +102,7 @@ let displayController = (() => {
     }
   })
 
-  let initialPageLoad = () => {
-    refreshProjectList();
-    loadProject(0);
-  }
-  initialPageLoad();
+  refreshProjectList(); //Initial page load
   
 
 })();
