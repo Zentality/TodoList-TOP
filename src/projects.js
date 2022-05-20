@@ -47,11 +47,11 @@ const projects = (() => {
 
 
 
-projects.addProject("Example Project", "This is a description for a project example, to get started making your own projects click the plus button on the projects panel", "2022-05-05", "1");
-projects.addProject("Test Project2", "Description for test project 2", "2022-05-05", "2");
-projects.addProject("Test Project3", "Description for test project 3", "2022-05-05", "1");
-projects.addProject("Example Project", "This is a description for a project example, to get started making your own projects click the plus button on the projects panel", "2022-05-05", "1");
-projects.addProject("Test Project2", "Description for test project 2", "2022-05-05", "2");
-projects.addProject("Test Project3", "Description for test project 3", "2022-05-05", "1");
+projects.addProject("Example Project", "This is a description for a project example, to get started making your own projects click the plus button on the projects panel", "2022-05-05", "High");
+projects.addProject("Test Project2", "Description for test project 2", "2022-05-05", "Medium");
+projects.addProject("Test Project3", "Description for test project 3", "2022-05-05", "High");
+projects.addProject("Example Project", "This is a description for a project example, to get started making your own projects click the plus button on the projects panel", "2022-05-05", "High");
+projects.addProject("Test Project2", "Description for test project 2", "2022-05-05", "Medium");
+projects.addProject("Test Project3", "Description for test project 3", "2022-05-05", "High");
 
 export default projects;

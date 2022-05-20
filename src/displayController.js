@@ -70,8 +70,10 @@ const displayController = (() => {
         loadProject(index);
       }
       tempLi.textContent = project.title;
+      const projectDetails = document.createElement("span");
+      projectDetails.textContent = `Due: ${project.dueDate} Priority: ${project.priority}`
       tempLi.dataset.index = index;
-      tempLi.appendChild(createDeleteButton());
+      tempLi.append(projectDetails, createDeleteButton());
       projectListDom.appendChild(tempLi);
     })
     attachProjectListListeners();
@@ -82,13 +84,7 @@ const displayController = (() => {
     let project = projects.getListOfProjects()[index];
     if (project == undefined){return};
     projectFields[0].textContent = project.title;
-    projectFields[1].textContent = (() => {
-      switch (project.priority) {
-        case "1": return "High";
-        case "2": return "Medium";
-        case "3": return "Low";
-      }
-    })();
+    projectFields[1].textContent = project.priority;
     projectFields[2].textContent = project.desc;
     projectFields[3].textContent = project.dueDate;
   }
