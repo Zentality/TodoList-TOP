@@ -69,11 +69,13 @@ const displayController = (() => {
         tempLi.classList.add("active");
         loadProject(index);
       }
-      tempLi.textContent = project.title;
+      const projectTitle = document.createElement("span");
+      projectTitle.textContent = project.title;
       const projectDetails = document.createElement("span");
       projectDetails.textContent = `Due: ${project.dueDate} Priority: ${project.priority}`
+      projectTitle.appendChild(projectDetails);
       tempLi.dataset.index = index;
-      tempLi.append(projectDetails, createDeleteButton());
+      tempLi.append(projectTitle, createDeleteButton());
       projectListDom.appendChild(tempLi);
     })
     attachProjectListListeners();

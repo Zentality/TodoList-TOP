@@ -104,6 +104,25 @@ body {
   border-radius: 4px;
 }
 
+.container .projectsBar ul li span {
+  color: inherit;
+  pointer-events: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container .projectsBar ul li span span {
+  display: none;
+  padding: 0;
+  font-size: 0.8rem;
+  color: #e8f1f5;
+}
+
 .container .projectsBar ul li .delete {
   visibility: hidden;
   padding: 2px 8px;
@@ -128,7 +147,10 @@ body {
   -webkit-transform: scale(1.05) !important;
           transform: scale(1.05) !important;
   font-weight: 700;
-  letter-spacing: 0.05rem;
+}
+
+.container .projectsBar ul li:hover span > span {
+  display: block;
 }
 
 .container .projectsBar ul li:hover .delete {

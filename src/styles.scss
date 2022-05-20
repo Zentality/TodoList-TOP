@@ -72,6 +72,18 @@ body {
         display: flex;
         justify-content: space-between;
         border-radius: 4px;
+        span {
+          color: inherit;
+          pointer-events: none;
+          display: flex;
+          flex-direction: column;
+          span {
+            display: none;
+            padding: 0;
+            font-size: 0.8rem;
+            color: $iceWhite;
+          }
+        }
         .delete {
           visibility: hidden;
           padding: 2px 8px;
@@ -91,7 +103,9 @@ body {
           cursor: pointer;
           transform: scale(1.05) !important;
           font-weight: 700;
-          letter-spacing: 0.05rem;
+          span>span {
+            display: block;
+          }
           .delete {
             visibility: visible;
           }
