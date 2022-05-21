@@ -15,9 +15,15 @@ const project = (title, desc, dueDate, priority) => {
   const removeFromList = (index) => {
     todoList.splice(index, 1);
   };
+  const editTodo = (index, title, description, dueDate, priority) => {
+    todoList[index].title = title;
+    todoList[index].description = description;
+    todoList[index].dueDate = dueDate;
+    todoList[index].priority = priority;
+  };
 
   return {
-    title, desc, dueDate, priority, isActive, getToDoList, addToList, removeFromList,
+    title, desc, dueDate, priority, isActive, getToDoList, addToList, removeFromList, editTodo,
   };
 };
 

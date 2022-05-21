@@ -133,12 +133,13 @@ const displayController = (() => {
         editTodoModal.style.display = "none";
       }
     });
-    editTodo.addEventListener("click", () => {
+    editTodo.addEventListener("click", (e) => {
+      const { projectIndex } = e.target.parentElement.parentElement.dataset;
       if (title.value === "" || dueDate.value === "") {
         alert("Please fill all inputs");
       } else {
-        projects.editProject(
-          editTodoModal.dataset.projectIndex,
+        projects.getListOfProjects()[projectIndex].editTodo(
+          e.target.parentElement.parentElement.dataset.todoIndex,
           title.value,
           description.value,
           dueDate.value,
@@ -148,7 +149,7 @@ const displayController = (() => {
         description.value = "";
         dueDate.value = "";
         editTodoModal.style.display = "none";
-        refreshProjectList();
+        loadTodoList(projectIndex);
       }
     });
 
