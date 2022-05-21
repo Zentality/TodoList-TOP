@@ -1,58 +1,59 @@
-const todoItem = (title, description, dueDate, priority) => {
-  return {title, description, dueDate, priority};
-}
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-shadow */
+/* eslint-disable no-use-before-define */
+const todoItem = (title, description, dueDate, priority) => ({
+  title, description, dueDate, priority,
+});
 
 const project = (title, desc, dueDate, priority) => {
-  let isActive = false;
+  const isActive = false;
   const todoList = [];
-  const getToDoList = () => {
-    return todoList.slice();
-  }
-  const addToList = (title, description, dueDate, priority) => {
-    todoList.push(todoItem(title, description, dueDate, priority));
-  }
-  
-  return {title, desc, dueDate, priority, isActive, getToDoList, addToList};
-}
+  const getToDoList = () => todoList.slice();
+  const addToList = (titleTodo, descTodo, dueDateTodo, priorityTodo) => {
+    todoList.push(todoItem(titleTodo, descTodo, dueDateTodo, priorityTodo));
+  };
+
+  return {
+    title, desc, dueDate, priority, isActive, getToDoList, addToList,
+  };
+};
 
 const projects = (() => {
   const listOfProjects = [];
-  const getListOfProjects = () => {
-    return listOfProjects.slice();
-  }
+  const getListOfProjects = () => listOfProjects.slice();
   const addProject = (title, desc, dueDate, priority) => {
     listOfProjects.push(project(title, desc, dueDate, priority));
-    if (listOfProjects.length === 1){
+    if (listOfProjects.length === 1) {
       setActiveProject(0);
     }
-  }
+  };
   const removeProject = (index) => {
-    if (listOfProjects[index].isActive == true){
+    if (listOfProjects[index].isActive === true) {
       listOfProjects.splice(index, 1);
       setActiveProject(0);
     } else {
       listOfProjects.splice(index, 1);
     }
-  }
+  };
   const setActiveProject = (index) => {
-    if (listOfProjects.length === 0){return};
+    if (listOfProjects.length === 0) { return; }
     listOfProjects.forEach((project) => {
       project.isActive = false;
-    })
+    });
     listOfProjects[index].isActive = true;
-  }
+  };
   const editProject = (index, title, desc, dueDate, priority) => {
     const tempProject = listOfProjects[index];
     tempProject.title = title;
     tempProject.desc = desc;
     tempProject.dueDate = dueDate;
     tempProject.priority = priority;
-  }
-  
-  return {getListOfProjects, addProject, removeProject, setActiveProject, editProject};
+  };
+
+  return {
+    getListOfProjects, addProject, removeProject, setActiveProject, editProject,
+  };
 })();
-
-
 
 projects.addProject("Example Project", "This is a description for a project example, to get started making your own projects click the plus button on the projects panel", "2022-05-05", "High");
 projects.addProject("Test Project2", "Description for test project 2", "2022-05-05", "Medium");
