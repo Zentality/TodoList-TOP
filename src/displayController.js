@@ -109,7 +109,7 @@ const displayController = (() => {
 
   const projectListDom = document.querySelector(".projects>ul");
 
-  const createDeleteButton = () => {
+  const createProjectDeleteButton = () => {
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
     deleteButton.classList.add("delete");
@@ -117,6 +117,18 @@ const displayController = (() => {
       e.stopPropagation();
       projects.removeProject(e.target.parentElement.dataset.index);
       refreshProjectList();
+    });
+    return deleteButton;
+  };
+
+  const createTodoDeleteButton = (projectIndex) => {
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.classList.add("delete");
+    deleteButton.addEventListener("click", (e) => {
+      e.stopPropagation();
+      projects.getListOfProjects()[projectIndex].removeFromList(e.target.parentElement.parentElement.dataset.todoIndex);
+      loadTodoList(projectIndex);
     });
     return deleteButton;
   };
@@ -182,10 +194,7 @@ const displayController = (() => {
       todoPriority.textContent = `Priority: ${todoList[i].priority}`;
       todoDetails.append(todoDue, todoPriority);
       headerDetails.append(todoTitle, todoDetails);
-      const deleteButton = document.createElement("button");
-      deleteButton.classList.add("delete");
-      deleteButton.textContent = "Delete";
-      headerContainer.append(headerDetails, deleteButton);
+      headerContainer.append(headerDetails, createTodoDeleteButton(projectIndex));
       todoListHeader.addEventListener(("click"), (e) => {
         e.target.nextElementSibling.style.display = (e.target.nextElementSibling.style.display === "block") ? "none" : "block";
       });
@@ -219,7 +228,7 @@ const displayController = (() => {
       projectDetails.textContent = `Due: ${project.dueDate}, Priority: ${project.priority}`;
       projectTitle.appendChild(projectDetails);
       tempLi.dataset.index = index;
-      tempLi.append(projectTitle, createEditButton(), createDeleteButton());
+      tempLi.append(projectTitle, createEditButton(), createProjectDeleteButton());
       projectListDom.appendChild(tempLi);
     });
     attachProjectListListeners();
