@@ -61,7 +61,7 @@ const projects = (() => {
 // These are only test projects and todos for development
 projects.addProject("Example Project", "This is a description for a project example, to get started making your own projects click the plus button on the projects panel", "2022-05-05", "High");
 projects.getListOfProjects()[0].addToList("TITLEHERE", "DESC", "2022-50-50", "High");
-projects.getListOfProjects()[0].addToList("TITLEHERE", "DESC", "2022-50-50", "Med");
+projects.getListOfProjects()[0].addToList("TITLEHERE", "DESC", "2022-05-05", "Medium");
 projects.getListOfProjects()[0].addToList("TITLEHERE", "DESC", "2022-50-50", "Low");
 projects.addProject("Test Project2", "Description for test project 2", "2022-05-05", "Medium");
 projects.addProject("Test Project3", "Description for test project 3", "2022-05-05", "High");
