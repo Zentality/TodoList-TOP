@@ -224,7 +224,6 @@ const displayController = (() => {
       editTodos.updateModal(todoIndex);
       editTodos.editTodoModal.style.display = "flex";
       e.stopPropagation();
-      loadTodoList(projectIndex);
     });
     return editButton;
   };

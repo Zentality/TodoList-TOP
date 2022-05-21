@@ -86,9 +86,6 @@ body {
         .delete {
           margin: 0 4px;
         }
-        .edit {
-          margin-left: auto;
-        }
         &:nth-child(2n + 1) {
           background-color: rgb(202, 220, 240);
         }
@@ -336,6 +333,7 @@ button {
 }
 .edit {
   background-color: rgba(0,0,0,0.4);
+  margin-left: auto !important;
 }
 .delete, .edit {
   visibility: hidden;

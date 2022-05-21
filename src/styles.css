@@ -124,10 +124,6 @@ body {
   margin: 0 4px;
 }
 
-.container .projectsBar ul li .edit {
-  margin-left: auto;
-}
-
 .container .projectsBar ul li:nth-child(2n + 1) {
   background-color: #cadcf0;
 }
@@ -495,6 +491,7 @@ button:hover {
 
 .edit {
   background-color: rgba(0, 0, 0, 0.4);
+  margin-left: auto !important;
 }
 
 .delete, .edit {
