@@ -109,15 +109,6 @@ const displayController = (() => {
 
   const projectListDom = document.querySelector(".projects>ul");
 
-  // Created to test functionality before implementation
-  const todoItem = document.querySelectorAll(".tempClass");
-  todoItem.forEach((item) => {
-    item.addEventListener(("click"), (e) => {
-      console.log(e.target.nextElementSibling.style.display);
-      e.target.nextElementSibling.style.display = (e.target.nextElementSibling.style.display === "block") ? "none" : "block";
-    });
-  });
-
   const createDeleteButton = () => {
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
@@ -164,6 +155,44 @@ const displayController = (() => {
     projectFields[1].textContent = project.priority;
     projectFields[2].textContent = project.desc;
     projectFields[3].textContent = project.dueDate;
+    loadTodoList(index);
+  };
+
+  const loadTodoList = (projectIndex) => {
+    const todoListDom = document.querySelector(".todoItems");
+    const project = projects.getListOfProjects()[projectIndex];
+    const todoList = project.getToDoList();
+    console.log(todoList);
+
+    for (let i = 0; i < todoList.length; i++) {
+      const todoListHeader = document.createElement("li");
+      const headerContainer = document.createElement("div");
+      todoListHeader.appendChild(headerContainer);
+      headerContainer.classList.add("todoHeader");
+      const headerDetails = document.createElement("div");
+      const todoTitle = document.createElement("div");
+      todoTitle.textContent = todoList[i].title;
+      todoTitle.classList.add("todoTitle");
+      const todoDetails = document.createElement("div");
+      const todoDue = document.createElement("span");
+      todoDue.textContent = todoList[i].dueDate;
+      const todoPriority = document.createElement("span");
+      todoPriority.textContent = todoList[i].priority;
+      todoDetails.append(todoDue, todoPriority);
+      headerDetails.append(todoTitle, todoDetails);
+      const deleteButton = document.createElement("button");
+      deleteButton.classList.add("delete");
+      deleteButton.textContent = "Delete";
+      headerContainer.append(headerDetails, deleteButton);
+      todoListHeader.addEventListener(("click"), (e) => {
+        e.target.nextElementSibling.style.display = (e.target.nextElementSibling.style.display === "block") ? "none" : "block";
+      });
+
+      const todoListBody = document.createElement("li");
+      todoListBody.style.display = "none";
+      todoListBody.textContent = todoList[i].description;
+      todoListDom.append(todoListHeader, todoListBody);
+    }
   };
 
   const refreshProjectList = () => {
