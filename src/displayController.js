@@ -160,6 +160,7 @@ const displayController = (() => {
 
   const loadTodoList = (projectIndex) => {
     const todoListDom = document.querySelector(".todoItems");
+    todoListDom.textContent = "";
     const project = projects.getListOfProjects()[projectIndex];
     const todoList = project.getToDoList();
     console.log(todoList);

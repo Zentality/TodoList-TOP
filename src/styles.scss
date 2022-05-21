@@ -159,6 +159,9 @@ body {
   border: 2px solid $darkBlue;
   border-radius: 4px;
   box-shadow: 0 0 8px 2px rgba(0,0,0,0.4);
+  &:empty {
+    visibility: hidden;
+  }
   li {
     min-height: 20px;
     padding: 8px;

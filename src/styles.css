@@ -222,6 +222,10 @@ body {
           box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.4);
 }
 
+.todoItems:empty {
+  visibility: hidden;
+}
+
 .todoItems li {
   min-height: 20px;
   padding: 8px;
