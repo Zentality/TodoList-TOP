@@ -161,12 +161,13 @@ const displayController = (() => {
   const loadTodoList = (projectIndex) => {
     const todoListDom = document.querySelector(".todoItems");
     todoListDom.textContent = "";
+    todoListDom.dataset.projectIndex = projectIndex;
     const project = projects.getListOfProjects()[projectIndex];
     const todoList = project.getToDoList();
-    console.log(todoList);
 
     for (let i = 0; i < todoList.length; i++) {
       const todoListHeader = document.createElement("li");
+      todoListHeader.dataset.todoIndex = i;
       const headerContainer = document.createElement("div");
       todoListHeader.appendChild(headerContainer);
       headerContainer.classList.add("todoHeader");
@@ -176,9 +177,9 @@ const displayController = (() => {
       todoTitle.classList.add("todoTitle");
       const todoDetails = document.createElement("div");
       const todoDue = document.createElement("span");
-      todoDue.textContent = todoList[i].dueDate;
+      todoDue.textContent = `Due: ${todoList[i].dueDate}`;
       const todoPriority = document.createElement("span");
-      todoPriority.textContent = todoList[i].priority;
+      todoPriority.textContent = `Priority: ${todoList[i].priority}`;
       todoDetails.append(todoDue, todoPriority);
       headerDetails.append(todoTitle, todoDetails);
       const deleteButton = document.createElement("button");
@@ -195,6 +196,13 @@ const displayController = (() => {
       todoListDom.append(todoListHeader, todoListBody);
     }
   };
+
+  const addTodo = document.querySelector(".addTodo");
+  addTodo.addEventListener(("click"), (e) => {
+    const { projectIndex } = e.target.parentElement.nextElementSibling.firstElementChild.dataset;
+    projects.getListOfProjects()[projectIndex].addToList("New todo", "Edit to change fields", "Today", "High");
+    loadTodoList(projectIndex);
+  });
 
   const refreshProjectList = () => {
     projectListDom.textContent = "";

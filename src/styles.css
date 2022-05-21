@@ -251,6 +251,10 @@ body {
   pointer-events: auto;
 }
 
+.todoItems li:nth-child(2n + 1) span:last-child {
+  margin-left: 32px;
+}
+
 .todoItems li:nth-child(2n + 1) .todoHeader {
   display: -webkit-box;
   display: -ms-flexbox;

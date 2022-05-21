@@ -179,6 +179,9 @@ body {
     button {
       pointer-events: auto;
     }
+    span:last-child {
+      margin-left: 32px;
+    }
     background-color: $blue;
     cursor: pointer;
     .todoHeader {

@@ -62,6 +62,33 @@
     </div>
   </div>
 
+  <div class="editTodo modal">
+    <div>
+      <span>Edit Todo <button class="closeEditTodo">&times;</button></span>
+      <div>
+        <label for="titleEditTodo">Summary of Todo</label>
+        <input id="titleEditTodo" type="text">
+      </div>
+      <div>
+        <label for="descriptionEditTodo">Description</label>
+        <input id="descriptionEditTodo" type="text">
+      </div>
+      <div>
+        <label for="dueDateEditTodo">When is it due by?</label>
+        <input id="dueDateEditTodo" type="date">
+      </div>
+      <div>
+        <label for="priorityEditTodo">Level of importance: </label>
+        <select id="priorityEditTodo" name="priority">
+          <option value="High" class="selectOption">High</option>
+          <option value="Medium" class="selectOption">Medium</option>
+          <option value="Low" class="selectOption">Low</option>
+        </select>
+      </div>
+      <button class="submitEditTodo">Confirm Changes</button>
+    </div>
+  </div>
+
   <div class="container">
     <div class="header">Project Organiser</div>
     <div class="projectsBar">
@@ -78,6 +105,10 @@
       <div class="projectViewDesc">
         <span class="projectDescription projectField"></span>
         <span class="projectDue">Due: <span class="projectField"></span></span>
+      </div>
+      <div class="todoSettings">
+        <button class="sort">Sort *not implemented*</button>
+        <button class="addTodo">Add a Todo</button>
       </div>
       <div class="projectTodoList">
         <ul class="todoItems">
