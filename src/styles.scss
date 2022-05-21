@@ -160,10 +160,23 @@ body {
   border-radius: 4px;
   box-shadow: 0 0 8px 2px rgba(0,0,0,0.4);
   li {
-    background-color: $blue;
-    border: 2px solid $darkBlue;
     min-height: 20px;
     padding: 8px;
+    border: 2px solid $darkBlue;
+  }
+  li:nth-child(2n){
+    background-color: $iceWhite;
+    color: $darkBlue;
+    display: none;
+  }
+  li:nth-child(2n + 1) {
+    div {
+      pointer-events: none;
+    }
+    button {
+      pointer-events: auto;
+    }
+    background-color: $blue;
     cursor: pointer;
     .todoHeader {
       display: flex;

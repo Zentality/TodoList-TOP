@@ -223,14 +223,31 @@ body {
 }
 
 .todoItems li {
-  background-color: #005691;
-  border: 2px solid #004a7c;
   min-height: 20px;
   padding: 8px;
+  border: 2px solid #004a7c;
+}
+
+.todoItems li:nth-child(2n) {
+  background-color: #e8f1f5;
+  color: #004a7c;
+  display: none;
+}
+
+.todoItems li:nth-child(2n + 1) {
+  background-color: #005691;
   cursor: pointer;
 }
 
-.todoItems li .todoHeader {
+.todoItems li:nth-child(2n + 1) div {
+  pointer-events: none;
+}
+
+.todoItems li:nth-child(2n + 1) button {
+  pointer-events: auto;
+}
+
+.todoItems li:nth-child(2n + 1) .todoHeader {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -240,19 +257,19 @@ body {
   font-size: 0.85rem;
 }
 
-.todoItems li .todoHeader .todoTitle {
+.todoItems li:nth-child(2n + 1) .todoHeader .todoTitle {
   font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: 0.05rem;
 }
 
-.todoItems li:hover {
+.todoItems li:nth-child(2n + 1):hover {
   -webkit-transition: 300ms;
   transition: 300ms;
   background-color: #146aa5;
 }
 
-.todoItems li:hover button {
+.todoItems li:nth-child(2n + 1):hover button {
   visibility: visible;
 }
 

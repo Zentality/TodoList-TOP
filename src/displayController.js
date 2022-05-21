@@ -109,6 +109,15 @@ const displayController = (() => {
 
   const projectListDom = document.querySelector(".projects>ul");
 
+  // Created to test functionality before implementation
+  const todoItem = document.querySelectorAll(".tempClass");
+  todoItem.forEach((item) => {
+    item.addEventListener(("click"), (e) => {
+      console.log(e.target.nextElementSibling.style.display);
+      e.target.nextElementSibling.style.display = (e.target.nextElementSibling.style.display === "block") ? "none" : "block";
+    });
+  });
+
   const createDeleteButton = () => {
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
