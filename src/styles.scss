@@ -152,9 +152,29 @@ body {
   }
 }
 
+.todoSettings {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 0 16px;
+  button {
+    padding: 6px 12px;
+    margin: 0 4px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    &:last-child {
+      background-color: $blue;
+      color: $iceWhite;
+    }
+    &:nth-child(-n + 1) {
+      background-color: rgba(0,0,0,0.7);
+      color: $iceWhite;
+    }
+  }
+}
+
 .todoItems {
   color: $iceWhite;
-  margin-top: 16px;
   list-style: none;
   border: 2px solid $darkBlue;
   border-radius: 4px;

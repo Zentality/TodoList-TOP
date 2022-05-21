@@ -212,9 +212,36 @@ body {
   text-align: end;
 }
 
+.todoSettings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 8px 0 16px;
+}
+
+.todoSettings button {
+  padding: 6px 12px;
+  margin: 0 4px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.todoSettings button:last-child {
+  background-color: #005691;
+  color: #e8f1f5;
+}
+
+.todoSettings button:nth-child(-n + 1) {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #e8f1f5;
+}
+
 .todoItems {
   color: #e8f1f5;
-  margin-top: 16px;
   list-style: none;
   border: 2px solid #004a7c;
   border-radius: 4px;
