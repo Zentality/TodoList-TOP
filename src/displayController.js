@@ -287,6 +287,19 @@ const displayController = (() => {
     }
   };
 
+  const sortTodoButtons = document.querySelectorAll(".sort>.dropdown>.dropdownButton");
+  sortTodoButtons.forEach((button, index) => {
+    button.addEventListener("click", (e) => {
+      const { projectIndex } = e.target.parentElement.parentElement.parentElement.nextElementSibling.firstElementChild.dataset;
+      sortTodoList(index, projectIndex);
+    });
+  });
+
+  const sortTodoList = (method, projectIndex) => {
+    projects.getListOfProjects()[projectIndex].sortTodos(method);
+    loadTodoList(projectIndex);
+  };
+
   const refreshProjectList = () => {
     projectListDom.textContent = "";
     unloadProjectFields();

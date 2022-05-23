@@ -356,6 +356,8 @@ button:not(.dropdownButton) {
     }
   }
   &:hover {
+    min-width: 128px;
+    text-align: center;
     box-shadow: 0 0 8px 0 rgba(0,0,0,0.4);
     .dropdown {
       display: block;

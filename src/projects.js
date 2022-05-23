@@ -7,7 +7,7 @@ const todoItem = (title, description, dueDate, priority) => ({
 
 const project = (title, desc, dueDate, priority) => {
   const isActive = false;
-  const todoList = [];
+  let todoList = [];
   const getToDoList = () => todoList.slice();
   const addToList = (titleTodo, descTodo, dueDateTodo, priorityTodo) => {
     todoList.push(todoItem(titleTodo, descTodo, dueDateTodo, priorityTodo));
@@ -21,9 +21,18 @@ const project = (title, desc, dueDate, priority) => {
     todoList[index].dueDate = dueDate;
     todoList[index].priority = priority;
   };
+  const sortTodos = (method) => {
+    if (method === 0) {
+      todoList = todoList.sort((a, b) => a.title.localeCompare(b.title));
+    } else if (method === 1) {
+      todoList = todoList.sort((a, b) => a.dueDate.localeCompare(b.dueDate));
+    } else if (method === 2) {
+      console.log({ a, b });
+    }
+  };
 
   return {
-    title, desc, dueDate, priority, isActive, getToDoList, addToList, removeFromList, editTodo,
+    title, desc, dueDate, priority, isActive, getToDoList, addToList, removeFromList, editTodo, sortTodos,
   };
 };
 
