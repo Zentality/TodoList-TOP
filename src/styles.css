@@ -218,7 +218,12 @@ body {
   padding: 8px 0 16px;
 }
 
-.todoSettings button {
+.todoSettings .sort {
+  background-color: #50505a;
+  color: #e8f1f5;
+}
+
+.todoSettings > button, .todoSettings .sort {
   padding: 6px 12px;
   margin: 0 4px;
   border-radius: 4px;
@@ -226,13 +231,8 @@ body {
   font-size: 0.9rem;
 }
 
-.todoSettings button:last-child {
+.todoSettings > button:last-child, .todoSettings .sort:last-child {
   background-color: #005691;
-  color: #e8f1f5;
-}
-
-.todoSettings button:nth-child(-n + 1) {
-  background-color: rgba(0, 0, 0, 0.7);
   color: #e8f1f5;
 }
 
@@ -471,18 +471,59 @@ body {
   border-radius: 8px;
 }
 
-button {
+button:not(.dropdownButton) {
   cursor: pointer;
   border: none;
 }
 
-button:hover {
+button:not(.dropdownButton):hover {
   -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
           box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
   -webkit-transition: 100ms;
   transition: 100ms;
   -webkit-transform: scale(1.03);
           transform: scale(1.03);
+}
+
+.sort {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  border: none;
+}
+
+.sort .dropdown {
+  padding-top: 8px;
+  width: 100%;
+  margin-left: -12px;
+  display: none;
+  position: absolute;
+  background-color: inherit;
+  border-radius: 4px;
+}
+
+.sort .dropdown button {
+  padding: 4px 12px;
+  background-color: inherit;
+  color: #e8f1f5;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.sort .dropdown button:hover {
+  color: white;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.sort:hover {
+  -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+}
+
+.sort:hover .dropdown {
+  display: block;
 }
 
 .delete {
