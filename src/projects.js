@@ -42,6 +42,8 @@ const project = (title, desc, dueDate, priority) => {
         }
         return aValue - bValue;
       });
+    } else if (method === 3) {
+      todoList = todoList.reverse();
     }
   };
 
@@ -90,10 +92,10 @@ const projects = (() => {
 // These are just preloaded example projects
 projects.addProject("Sample Project", "This is a description for a project example, to get started making your own projects click the plus button on the projects panel", "2022-05-05", "High");
 projects.getListOfProjects()[0].addToList("Example todo", "Hey I hope you enjoy this project, feel free to delete this todo it is only an example", "2022-04-04", "Medium");
-projects.getListOfProjects()[0].addToList("Bnother one", "Also an example, anyway, if you would like to encourage me a follow on github couldn't hurt! The link is in the footer", "2022-05-05", "High");
+projects.getListOfProjects()[0].addToList("B Another one", "Also an example, anyway, if you would like to encourage me a follow on github couldn't hurt! The link is in the footer", "2022-05-05", "High");
 projects.getListOfProjects()[0].addToList("Example todo", "Hey I hope you enjoy this project, feel free to delete this todo it is only an example", "2022-04-04", "Low");
 projects.getListOfProjects()[0].addToList("Another one", "Also an example, anyway, if you would like to encourage me a follow on github couldn't hurt! The link is in the footer", "2022-05-05", "Medium");
-projects.getListOfProjects()[0].addToList("Cxample todo", "Hey I hope you enjoy this project, feel free to delete this todo it is only an example", "2022-04-04", "Low");
+projects.getListOfProjects()[0].addToList("C Example todo", "Hey I hope you enjoy this project, feel free to delete this todo it is only an example", "2022-04-04", "Low");
 projects.getListOfProjects()[0].addToList("Another one", "Also an example, anyway, if you would like to encourage me a follow on github couldn't hurt! The link is in the footer", "2022-05-05", "High");
 
 projects.addProject("Sample 2", "This has no todos, but shows how the project bar looks", "2022-05-05", "Medium");
