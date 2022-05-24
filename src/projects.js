@@ -16,6 +16,7 @@ const todoItem = (title, description, dueDate, priority) => {
     } if (today.getDate() >= dueDateArray[2]) {
       return true;
     }
+
     return false;
   };
   return {
@@ -34,10 +35,7 @@ const project = (title, desc, dueDate, priority) => {
     todoList.splice(index, 1);
   };
   const editTodo = (index, title, description, dueDate, priority) => {
-    todoList[index].title = title;
-    todoList[index].description = description;
-    todoList[index].dueDate = dueDate;
-    todoList[index].priority = priority;
+    todoList[index] = todoItem(title, description, dueDate, priority);
   };
   const sortTodos = (method) => {
     if (method === 0) {

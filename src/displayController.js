@@ -138,18 +138,29 @@ const displayController = (() => {
       if (title.value === "" || dueDate.value === "") {
         alert("Please fill all inputs");
       } else {
+        const { todoIndex } = e.target.parentElement.parentElement.dataset;
         projects.getListOfProjects()[projectIndex].editTodo(
-          e.target.parentElement.parentElement.dataset.todoIndex,
+          todoIndex,
           title.value,
           description.value,
           dueDate.value,
           priority.value,
         );
+        const todoFields = document.querySelectorAll(".todoItems>li .todoField");
+        todoFields[todoIndex * 3].textContent = title.value;
+        todoFields[todoIndex * 3 + 1].textContent = `Due: ${dueDate.value}`;
+        todoFields[todoIndex * 3 + 2].textContent = `Priority: ${priority.value}`;
+        if (projects.getListOfProjects()[projectIndex].getToDoList()[todoIndex].due() === true) {
+          todoFields[todoIndex * 3 + 1].classList.add("isDue");
+        } else {
+          todoFields[todoIndex * 3 + 1].classList.remove("isDue");
+        }
+        const todoList = document.querySelectorAll(".todoItems>li");
+        todoList[todoIndex * 2 + 1].textContent = description.value;
         title.value = "";
         description.value = "";
         dueDate.value = "";
         editTodoModal.style.display = "none";
-        loadTodoList(projectIndex);
       }
     });
 
@@ -267,15 +278,18 @@ const displayController = (() => {
       const headerDetails = document.createElement("div");
       const todoTitle = document.createElement("div");
       todoTitle.textContent = todoList[i].title;
+      todoTitle.classList.add("todoField");
       todoTitle.classList.add("todoTitle");
       const todoDetails = document.createElement("div");
       const todoDue = document.createElement("span");
       todoDue.textContent = `Due: ${todoList[i].dueDate}`;
+      todoDue.classList.add("todoField");
       if (todoList[i].due()) {
         todoDue.classList.add("isDue");
       }
       const todoPriority = document.createElement("span");
       todoPriority.textContent = `Priority: ${todoList[i].priority}`;
+      todoPriority.classList.add("todoField");
       todoDetails.append(todoDue, todoPriority);
       headerDetails.append(todoTitle, todoDetails);
       headerContainer.append(headerDetails, createTodoEditButton(projectIndex), createTodoDeleteButton(projectIndex));
