@@ -271,6 +271,9 @@ const displayController = (() => {
       const todoDetails = document.createElement("div");
       const todoDue = document.createElement("span");
       todoDue.textContent = `Due: ${todoList[i].dueDate}`;
+      if (todoList[i].due()) {
+        todoDue.classList.add("isDue");
+      }
       const todoPriority = document.createElement("span");
       todoPriority.textContent = `Priority: ${todoList[i].priority}`;
       todoDetails.append(todoDue, todoPriority);

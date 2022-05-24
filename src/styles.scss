@@ -192,6 +192,10 @@ body {
   li:nth-child(2n + 1) {
     div {
       pointer-events: none;
+      .isDue {
+        color: rgb(255,120,120);
+        font-weight: 600;
+      }
     }
     button {
       pointer-events: auto;

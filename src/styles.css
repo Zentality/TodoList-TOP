@@ -270,6 +270,11 @@ body {
   pointer-events: none;
 }
 
+.todoItems li:nth-child(2n + 1) div .isDue {
+  color: #ff7878;
+  font-weight: 600;
+}
+
 .todoItems li:nth-child(2n + 1) button {
   pointer-events: auto;
 }

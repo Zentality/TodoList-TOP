@@ -1,9 +1,27 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-shadow */
 /* eslint-disable no-use-before-define */
-const todoItem = (title, description, dueDate, priority) => ({
-  title, description, dueDate, priority,
-});
+const todoItem = (title, description, dueDate, priority) => {
+  const due = () => {
+    const today = new Date();
+    const dueDateArray = dueDate.split("-");
+    if (today.getFullYear() > dueDateArray[0]) {
+      return true;
+    } if (today.getFullYear() < dueDateArray[0]) {
+      return false;
+    } if (today.getMonth() + 1 > dueDateArray[1]) {
+      return true;
+    } if (today.getMonth() + 1 < dueDateArray[1]) {
+      return false;
+    } if (today.getDate() >= dueDateArray[2]) {
+      return true;
+    }
+    return false;
+  };
+  return {
+    title, description, dueDate, priority, due,
+  };
+};
 
 const project = (title, desc, dueDate, priority) => {
   const isActive = false;
@@ -90,13 +108,13 @@ const projects = (() => {
 })();
 
 // These are just preloaded example projects
-projects.addProject("Sample Project", "This is a description for a project example, to get started making your own projects click the plus button on the projects panel", "2022-05-05", "High");
-projects.getListOfProjects()[0].addToList("Example todo", "Hey I hope you enjoy this project, feel free to delete this todo it is only an example", "2022-04-04", "Medium");
-projects.getListOfProjects()[0].addToList("B Another one", "Also an example, anyway, if you would like to encourage me a follow on github couldn't hurt! The link is in the footer", "2022-05-05", "High");
+projects.addProject("Sample Project", "This is a description for a project example, to get started making your own projects click the plus button on the projects panel", "2022-05-24", "High");
+projects.getListOfProjects()[0].addToList("Example todo", "Hey I hope you enjoy this project, feel free to delete this todo it is only an example", "2022-05-24", "Medium");
+projects.getListOfProjects()[0].addToList("B Another one", "Also an example, anyway, if you would like to encourage me a follow on github couldn't hurt! The link is in the footer", "2022-05-23", "High");
 projects.getListOfProjects()[0].addToList("Example todo", "Hey I hope you enjoy this project, feel free to delete this todo it is only an example", "2022-04-04", "Low");
-projects.getListOfProjects()[0].addToList("Another one", "Also an example, anyway, if you would like to encourage me a follow on github couldn't hurt! The link is in the footer", "2022-05-05", "Medium");
+projects.getListOfProjects()[0].addToList("Another one", "Also an example, anyway, if you would like to encourage me a follow on github couldn't hurt! The link is in the footer", "2022-05-27", "Medium");
 projects.getListOfProjects()[0].addToList("C Example todo", "Hey I hope you enjoy this project, feel free to delete this todo it is only an example", "2022-04-04", "Low");
-projects.getListOfProjects()[0].addToList("Another one", "Also an example, anyway, if you would like to encourage me a follow on github couldn't hurt! The link is in the footer", "2022-05-05", "High");
+projects.getListOfProjects()[0].addToList("Another one", "Also an example, anyway, if you would like to encourage me a follow on github couldn't hurt! The link is in the footer", "2022-05-25", "High");
 
 projects.addProject("Sample 2", "This has no todos, but shows how the project bar looks", "2022-05-05", "Medium");
 
