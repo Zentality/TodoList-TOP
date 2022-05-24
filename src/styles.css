@@ -23,6 +23,7 @@ body {
   -ms-grid-rows: calc(60px + 3vh) 1fr calc(50px + 1vh);
   -ms-grid-columns: 1fr 3fr;
       grid-template: calc(60px + 3vh) 1fr calc(50px + 1vh)/1fr 3fr;
+  word-wrap: break-word;
 }
 
 .container .header {
@@ -550,5 +551,15 @@ button:not(.dropdownButton):hover {
   margin: 0 4px;
   font-weight: 700;
   letter-spacing: 0.05rem;
+}
+
+.textAreaDesc {
+  width: 100%;
+  height: 10vh;
+  outline: none;
+  color: #323232;
+  resize: vertical;
+  max-height: 25vh;
+  padding: 4px;
 }
 /*# sourceMappingURL=styles.css.map */

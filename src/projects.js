@@ -115,5 +115,6 @@ projects.getListOfProjects()[0].addToList("C Example todo", "Hey I hope you enjo
 projects.getListOfProjects()[0].addToList("Another one", "Also an example, anyway, if you would like to encourage me a follow on github couldn't hurt! The link is in the footer", "2022-05-25", "High");
 
 projects.addProject("Sample 2", "This has no todos, but shows how the project bar looks", "2022-05-05", "Medium");
+projects.addProject("SampleSampleSampleSampleSample", "This has no todos, but shows how the project bar looks", "2022-05-05", "Medium");
 
 export default projects;
