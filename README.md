@@ -22,6 +22,8 @@ A dynamic todo list project which utilises modules, factory functions and dom ma
 
 ## Live Project
 
+- https://zentality.github.io/TodoList-TOP/
+
 ## Note
 
 - This project is still a WIP
